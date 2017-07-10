@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title><%= id %> - jihantoro.net</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Programming, Cooking, Writing and Eating" />
+<meta property="og:title" content="jihantoro.net - Programming, Cooking, Writing and Eating" />
+<meta property="og:description" content="website resmi Rubi Jihantoro, berisi tentang Programming, Cooking, Writing and Eating" />
+<meta property="og:type" content="blog" />
+<meta property="og:url" content="http://jihantoro.net" />
+<meta property="og:image" content="/image.jpg" />
+<link href="/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Raleway:400,600,700' rel='stylesheet' type='text/css'>
+<link href="/css/style.css" rel='stylesheet' type='text/css' />  
+</head>
+<body>
+<div class="header" id="ban">
+    <div class="container">
+      <div class="head-left">
+        <div class="header-search">
+            <div class="search">
+              <input class="search_box" type="checkbox" id="search_box">
+              <label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
+              <div class="search_form">
+                <form action="/search" method="post">
+                  <input name="what" type="text" name="Search" placeholder="Search...">
+                  <input type="submit" value="Send">
+                </form>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="header_right">
+      <nav class="navbar navbar-default">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+          <nav class="link-effect-7" id="link-effect-7">
+            <ul class="nav navbar-nav">
+              <li><a href="/">Beranda</a></li>
+              <li><a href="/kategori/programming">Programming</a></li>
+              <li><a href="/kategori/resep-masakan">Resep Masakan</a></li>
+              <li><a href="/kategori/berita">Berita</a></li>
+              <li><a href="/kategori/cerita">Cerita</a></li>
+              <li><a href="/tentang">Tentang</a></li>
+              <li><a href="/kontak">Kontak</a></li>
+            </ul>
+          </nav>
+        </div>
+        <!-- /.navbar-collapse -->
+      </nav>
+      </div>
+      <div class="nav navbar-nav navbar-right social-icons">
+          <ul>
+            <li><a href="//facebook.com/real.jihantoro/"> </a></li>
+            <li><a href="https://www.linkedin.com/in/rubi-jihantoro/" class="in"> </a></li>
+          </ul>
+        </div>
+      <div class="clearfix"> </div> 
+    </div>
+  </div>
+  <!--start-main-->
+  <div class="header-bottom">
+    <div class="container">
+      <div class="logo">
+        <h3><a href="/kategori/<%= id %>">Menampilkan kategori <%= id.upcase %></a></h3>
+        <p>Semua artikel yang ada pada kategori ini.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- technology-left -->
+  <div class="technology">
+  <div class="container">
+    <div class="col-md-9 technology-left">
+    <div class="tech-no">
+      <div class="clearfix"></div>
+    <% posts.each do %>
+      <% nd = posts.read(String) %>
+      <% date = posts.read(Time) %>
+      <% url = posts.read(String) %>
+      <% data = nd.split("(`,`)") %>
+      <div class="wthree">
+         <div class="col-md-6 wthree-left">
+          <div class="tch-img">
+              <a href="/baca/<%= url %>"><img src="/uploads/images/<%= data[2] %>" class="img-responsive" alt="Foto dari <%= data[0] %>"></a>
+            </div>
+         </div>
+         <div class="col-md-6 wthree-right">
+            <h3><a href="/baca/<%= url %>"><%= data[0] %></a></h3>
+            <h6>BY <a href="/about">Rubi Jihantoro </a><%= Time.parse(date.to_s, "%Y-%m-%d").to_s("%d %b %Y") %>.</h6>
+              <p><%= data[1][0...130] %>.</p>
+              <div class="bht1">
+                <a href="/baca/<%= url %>">Read More</a>
+              </div>
+              <div class="soci">
+                <ul>
+                <li class="hvr-rectangle-out"><a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=http://jihantoro.net/baca/<%= url %>"></a></li>
+                <li class="hvr-rectangle-out"><a class="twit" href="https://twitter.com/home?status=Aku sedang membaca http://jihantoro.net/baca/<%= url %>"></a></li>
+                </ul>
+              </div>
+              <div class="clearfix"></div>
+         </div>
+          <div class="clearfix"></div>
+      </div>
+    <% end %>
+       <a class="btn btn-fluid btn-primary" style="width: 100%;">Load More</a>
+      </div>
+    </div>
+    <!-- technology-right -->
+    <div class="col-md-3 technology-right">
+        <div class="blo-top1">
+              
+          <div class="tech-btm">
+          <div class="search-1 wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+              <form action="/search" method="post">
+                <input name="what" type="search" name="Search" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}" required="">
+                <input type="submit" value=" ">
+              </form>
+            </div>
+            <h4>Popular Posts </h4>
+            <div class="popost">
+
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <!-- technology-right -->
+  </div>
+</div>
+<div class="footer">
+    <div class="container">
+      <div class="col-md-4 footer-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+        <h4>About Me</h4>
+        <p>An homie software engineer.</p>
+        <img src="images/t4.jpg" class="img-responsive" alt="">
+          <div class="bht1">
+            <a href="https://github.com/codenoid/">Read More</a>
+          </div>
+      </div>
+      <div class="col-md-4 footer-middle wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+      <h4>Link</h4>
+      <div class="mid-btm">
+        <p>github : @codenoid, twitter : @codenoid, gitter : @codenoid</p>
+      </div>
+    
+      </div>
+      <div class="col-md-4 footer-right wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+        <h4>Newsletter</h4>
+        <p>Dapatkan pemberitahuan terbaru mengenai blog ini</p>
+            <div class="name">
+              <form action="#" method="post">
+                <input name="name" type="text" placeholder="Nama kamu" required="">
+                <input name="email" type="text" placeholder="Email kamu" required="">
+                <input type="submit" value="Subscribed Now">
+              </form>
+            
+            </div>  
+            
+              <div class="clearfix"> </div>
+          
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="copyright wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+        <div class="container">
+          <p>© 2017 Jihantoro.net</p>
+        </div>
+      </div>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  var pop = '<%= pop %>';
+  var ndt = pop.split(":`:");
+  for (var i = 0; i < ndt.length-1; i++) {
+    var dt = ndt[i].split("(`,`)");
+    $('.popost').append('<div class="blog-grids"><div class="blog-grid-left"><a href="/baca/'+dt[3]+'"><img src="/uploads/images/'+dt[2]+'" class="img-responsive" alt=""></a></div><div class="blog-grid-right"><h5><a href="/baca/'+dt[3]+'">'+dt[0]+'</a> </h5></div><div class="clearfix"> </div></div>');
+  }
+</script>
+</body>
+</html>

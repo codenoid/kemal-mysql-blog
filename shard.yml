@@ -1,0 +1,25 @@
+name: jihantoroblog
+version: 0.1.0
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+    branch: master
+  db:
+    github: crystal-lang/crystal-db
+  kemal-session:
+    github: kemalcr/kemal-session
+    branch: master
+  mysql:
+    github: crystal-lang/crystal-mysql
+
+authors:
+  - Rubi Jihantoro <jihantoro8@gmail.com>
+
+targets:
+  jihantoroblog:
+    main: src/jihantoroblog.cr
+
+crystal: 0.23.1
+
+license: MIT
