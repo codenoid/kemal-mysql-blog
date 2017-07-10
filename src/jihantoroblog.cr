@@ -117,6 +117,16 @@ module Jihantoroblog
       render "src/views/search.ecr"
     end
   end
+
+  post "/subs" do |env|
+    post = {} of String => String
+    env.params.body.each do |k, v|
+      post[k] = HTML.escape(v)
+    end
+    data = post["name"] + "(`,`)" + post["email"]
+    db.exec "insert into main_posts (wdyw,data) values ('4',?)", data
+    env.redirect "/"
+  end
 end
 
 Kemal.config.env = "production"
